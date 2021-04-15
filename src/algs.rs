@@ -34,9 +34,7 @@ impl Algorithm for ETC {
         match self.chosen {
             Some(x) => Ok(x),
             None => {
-                if round == 0 {
-                    Ok(0)
-                } else if round < self.k * self.num_arms {
+                if round < self.k * self.num_arms {
                     Ok(round / self.k)
                 } else {
                     panic!("Should never happen!")
